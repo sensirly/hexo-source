@@ -32,13 +32,13 @@ The course covers the basics: representing games and strategies, the extensive f
 - Nobody has an incentive to deviate from their action if an equilibrium profile is played  (第2次参与游戏时: Median 2, Winner 4)
 
 ### 1.1.4 Definition
-![](/img/game_theory/best_response.png)  
-*玩家在当前局面的收益最大化的选择*
-![](/img/game_theory/nash_equilibrium.png)    
+![](/img/game_theory/best_response.png)     
+*玩家在当前局面的收益最大化的选择*   
+![](/img/game_theory/nash_equilibrium.png)     
 *纳什均衡是这样的一种状态：在博弈中如果玩家A选择了X选项，那么玩家B为了使自己的利益最大话选择了Y选项；相反如果玩家B选择了Y选项，这种情况下X对于玩家A来说也是利益最大话的唯一选项*
 
 ### 1.1.5 Example Games
-![](/img/game_theory/example_games_ne.png)
+![](/img/game_theory/example_games_ne.png)   
 
 ## 1.2 Domination
 - If one strategy dominates all others, we say it is dominant
@@ -50,7 +50,7 @@ The course covers the basics: representing games and strategies, the extensive f
 - an output is Pareto-optimal if there is no other outcome that Pareto-dominates it
  + a game can have more than one Pareto-optimal outcome
  + every game have at least one Pareto-optimal outcome
-- The paradox of Prisoner's dilemma: the (DS) Nash equilibrium is the only none-Pareto-optimal outcome!  
+- The paradox of Prisoner's dilemma: the (DS) Nash equilibrium is the only none-Pareto-optimal outcome!   
 ![](/img/game_theory/pareto_paradox.png)   
 *“从此以后，非损人不能利己。” 摘自知乎：[如何通俗地解释「帕累托最优」(Pareto optimum)?](https://www.zhihu.com/question/22570835)*  
 [介绍Dominant Strategy Equilibrium的视频](https://www.youtube.com/watch?v=3Y1WpytiHKE)
@@ -86,14 +86,14 @@ The course covers the basics: representing games and strategies, the extensive f
 - Order of removal can matter.
 
 ## 3.2 Maxmin Strategies
-![](/img/game_theory/maxmin_define.png)  
+![](/img/game_theory/maxmin_define.png)   
 *在其他玩家选择对其伤害最大的策略时，自己的最小收益最大化*  
 Why would I want to play a maxmin strategy?  
 - a conservative agent maximizing worst-case payoff  
-- a paranoid agent who believes everyone is out to get him  
-![](/img/game_theory/minmax_define.png)  
-Why would I want to play a minmax strategy?  
-- to punish the other agent as much as possible
+- a paranoid agent who believes everyone is out to get him   
+![](/img/game_theory/minmax_define.png)   
+Why would I want to play a minmax strategy?   
+- to punish the other agent as much as possible   
 
 >Theorem (Minimax theorem (von Neumann, 1928): In any finite, two-player, zero-sum game, in any Nash equilibrium each player receives a payoff that is equal to both his maxmin value and his minmax value. 
 
@@ -104,7 +104,7 @@ Why would I want to play a minmax strategy?
 # 4.Extensive-Form Games
 用树形结构表示多位player的交替行为及收益  
 
-![](/img/game_theory/extensive_form.png)  
+![](/img/game_theory/extensive_form.png)   
 >Theorem: Every perfect information game in extensive form has a PSNE  
 
 *This is easy to see, since the players move sequentially  

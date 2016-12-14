@@ -11,14 +11,14 @@ The course covers the basics: representing games and strategies, the extensive f
 <!-- more -->
 # 5: Repeated Gmaes
 ## 5.1 Utility
-可以定义为均值的极限，也可以定义为指数加权和的极限
-![](/img/game_theory/repeat_reward.PNG)  
-对衰减系数的两种解释：
+可以定义为均值的极限，也可以定义为指数加权和的极限   
+![](/img/game_theory/repeat_reward.PNG)   
+对衰减系数的两种解释：  
  1. 选手更在意近期的收益而非长期收益
  2. 在每一轮中，游戏都有`1-β^i`的概率结束
 
 ## 5.2 Stochastic Games
-Stochastic Games是Repeated Gmaes的泛化形式,agents可以重复参与一组normal-form games，下一轮选择的game取决于上一个game及所有agent的actions
+Stochastic Games是Repeated Gmaes的泛化形式,agents可以重复参与一组normal-form games，下一轮选择的game取决于上一个game及所有agent的actions   
 ![](/img/game_theory/stochastic_game.PNG)   
 it also generalizes MDP (Markov Decision Process), MDP is a single-agent stochastic game.
 
@@ -48,8 +48,8 @@ t时刻没有采用策略s的regret值=采用的s的utility-真实的utility。
 Repeatedly playing a Nash equilibrium of the stage game is always a subgame perfect equilibrium of the repeated game
 
 # 6: Bayesian Games
-1. a set of games that differ only in their payoffs, a common prior defined over them, and a partition structure over the games for each agent. 一组游戏，相同的策略空间，不同的utility。
-![](/img/game_theory/bayesian_define.PNG) 
+1. a set of games that differ only in their payoffs, a common prior defined over them, and a partition structure over the games for each agent. 一组游戏，相同的策略空间，不同的utility。   
+![](/img/game_theory/bayesian_define.PNG)   
 2. Directly represent uncertainty over utility function using the notion of **epistemic type**
 
 Bayesian (Nash) Equilibrium: 在对手的action和type分布上最大化自己的expected utility.
@@ -68,8 +68,8 @@ Lloyd Shapley’s idea: members should receive payments or shares proportional t
 ![](/img/game_theory/shapley_value.PNG) 
 
 ## 7.2 The Core 
-Shapley Value保证了fairness缺忽略了stability. 有时更小的coalition虽然整体收益较小但却更有吸引力，因此个体不愿意组成grand coalition。
-![](/img/game_theory/core_define.PNG) 
+Shapley Value保证了fairness缺忽略了stability. 有时更小的coalition虽然整体收益较小但却更有吸引力，因此个体不愿意组成grand coalition。  
+![](/img/game_theory/core_define.PNG)   
 每个个体在集体中得到的都要大于等于个体可以独自获得的payoff。类似于Nash Equilibrium。
 
 # 参考：

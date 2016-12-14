@@ -4,8 +4,8 @@ tags: [machine learning]
 ---
 
 # Hadoop
-Hadoop主要由两部分组成，HDFS和MapReduce。HDFS通过将块保存多个副本的办法解决了大数据可靠存储问题；MapReduce借鉴函数式编程语言的思想，通过Mapper和Reducer的抽象提供一个可以在多台机器上并发执行的编程模型，复杂的数据处理通过分解为由多个Mapper和Reducer组成的有向DAG依次调度得到结果。如下所示的wordcounter是一个经典的mapreduce编程示例。
-![](img/machine_learning/distributed_system/MapReduceWordCount.png)
+Hadoop主要由两部分组成，HDFS和MapReduce。HDFS通过将块保存多个副本的办法解决了大数据可靠存储问题；MapReduce借鉴函数式编程语言的思想，通过Mapper和Reducer的抽象提供一个可以在多台机器上并发执行的编程模型，复杂的数据处理通过分解为由多个Mapper和Reducer组成的有向DAG依次调度得到结果。如下所示的wordcounter是一个经典的mapreduce编程示例。   
+![](img/machine_learning/distributed_system/MapReduceWordCount.png)   
 
 ## 可靠性
 MapReduce通过把对数据集的大规模操作分发给网络上的每个节点实现可靠性；每个节点会周期性的把完成的工作和状态的更新报告回来。如果一个节点保持沉默超过一个预设的时间间隔，主节点录下这个节点状态为死亡，并把分配给这个节点的数据发到别的节点重新运行。
@@ -22,8 +22,8 @@ RDD是一种分布式只读分区集合的数据结构，Spark将数据存储在
 - 变换（Transformation）：调用一个变换方法，返回一个新的RDD集合，比如map，filter，flatMap，groupByKey，reduceByKey等。
 - 行动（Action）：计算全部的数据处理查询并返回结果值。比如reduce，collect，count等
 
-Spark对于有向无环图Job进行调度，确定阶段（Stage），分区（Partition），流水线（Pipeline），任务（Task）和缓存（Cache），进行优化，并在Spark集群上运行Job。RDD之间的依赖分为宽依赖（依赖多个分区）和窄依赖（只依赖一个分区），在确定阶段时，需要根据宽依赖划分阶段。根据分区划分任务。  
-![](img/machine_learning/distributed_system/spark_stage.png)
+Spark对于有向无环图Job进行调度，确定阶段（Stage），分区（Partition），流水线（Pipeline），任务（Task）和缓存（Cache），进行优化，并在Spark集群上运行Job。RDD之间的依赖分为宽依赖（依赖多个分区）和窄依赖（只依赖一个分区），在确定阶段时，需要根据宽依赖划分阶段。根据分区划分任务。   
+![](img/machine_learning/distributed_system/spark_stage.png)    
 
 # MPI
 - no fault tolerance

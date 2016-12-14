@@ -34,7 +34,7 @@ tags: [machine learning, recommendation system]
 - 选用`success@3`和CTR（推荐结果点击率）作为在线评测指标 
 
 ### 实验结果
-![](/img/machine_learning/CT_offline_evaluation.PNG) ![](/img/machine_learning/CT_online_CTR.PNG) 
+![](/img/machine_learning/CT_offline_evaluation.PNG) ![](/img/machine_learning/CT_online_CTR.PNG)   
 - 热门策略线上CTR4%, 准确率由16.5%提高至17.5%，因此3/4的点击来自于其他地方
 - CT策略线上CTR6%, 准确率由14%提高至19%，1/6的点击来自于其他地方,因此价值更高
 - 随机策略线上点击率较高是因为多数用户历史行为较少个性化效果不明显；在行为较多的用户中，随机与CT的CTR差异会被拉大
@@ -53,7 +53,7 @@ tags: [machine learning, recommendation system]
 作者将bias归因为：随时间推移item的概率分布是变化的（可能是线上推荐系统造成的影响），因此如果是均匀采样则无法在两个不同的时间点评估不同的算法。借用**covariate shift**的思想，通过学习的方法求得一组变量控制采样,使得t1时刻item的分布尽量逼近t0时刻，从而降低bias。
 ### Defination
 离线评测通常是按一定概率分布选取一个user（通常是考虑每个用户的商业价值），再以一定概率选取一个item，并把该item从数据集中刨除，在该状态下为user推荐k个item，通过观察是否命中评估推荐算法，如(1)。这个评估函数应该是与时间无关的才能保证离线评测的稳定性
-![](/img/machine_learning/viadeo_define.PNG)
+![](/img/machine_learning/viadeo_define.PNG)   
 简化问题：假设算法每次推荐结果是固定的，则只有item的概率分布影响评测的稳定性，如(2)。解决方法有两种：
 1. 记录t0时刻item的分布，在t1时刻沿用这个分布选择item再选取user。但这和离线评测流程是相悖的（先选择user在选择item），且无法响应新的user和item
 2. 更好的方法是借鉴covariate shift的思想，给定一个user引起一组变量`w`控制item选取，如（3）,使得`Pt1(i|w) ~ Pt0(i)`（目标函数）
@@ -61,7 +61,7 @@ tags: [machine learning, recommendation system]
 ### Solution & Result
 优化`w`看以看做是最小化两个分布之间的差异，根据Kullback-Leibler divergence的定义，两者之间的差异主要取决于出现频率最高的item，因此为了提高计算效率，只选择t0和t1之间变化最大的p个item求解`w`
 使用Viadeo（类似于linkedin）技能tag推荐数据集，为了更加直观的观察weighting策略的影响，这里依然选用了两个Constant Algorithm，算法1总是推荐评测阶段推荐最多的5个item给用户，算法2总是推荐历史上评测阶段没有推荐过但之前推荐最多的5个item给用户。
-![](/img/machine_learning/viadeo_result.PNG)
+![](/img/machine_learning/viadeo_result.PNG)   
 >As both algorithms are constant, it would be reasonable to expect minimal variations of their offine evaluation scores. However in practice the estimated quality of g1 increases by more than 25 %, while the relative decrease of g2 reaches 33 %.
 
 随着weighting策略的引入，离线评测的误差得到矫正，g1在p=20是趋于收敛。g2收敛速度和误差相对不太理想（why?) 
@@ -76,7 +76,7 @@ tags: [machine learning, recommendation system]
 multi-armed bandit problem是对EE问题（exploit：利用已知短期利益最大化，explore探索未知长期利益最大化）的建模。在新闻推荐中，每篇新闻可以看做一个arm，每次根据preceding interactions和current context选择一个arm作为推荐结果，如果推荐结果被点击了则payoff为1否则为0。对一篇新闻payoff的期望等同于它的CTR，选择CTR最高的新闻等同于最大化bandit问题中的payoff。
 ### Unbiased offline evaluation
 假设(1)the individual events are i.i.d.; (2)the logging policy chose each arm at each time step uniformly at random;(3)K constant arm Set。则可以证明evaluating the policy against T real-world events from D is  equivalent to evaluating the policy using the policy evaluator on a stream of logged events。基于这个结论给出了两个离线评测的算法：  
-![](/img/machine_learning/policy_evaluator.PNG)  
+![](/img/machine_learning/policy_evaluator.PNG)    
 通过重复算法1然后平均每次的误差可以准确的评测算法A；同样可以证明随着L的增大，算法2的误差也会在线性时间内收敛（K趋近于L/K）。
 ### Result & Comments
 线上分了两个桶：random bucket和serving bucket，离线用random bucket的Event和serving bucket的Algorithm做评测，得出结论：展现次数大于2w的文章，在线和离线的CTR基本一致，因此离线评测是unbiased。 

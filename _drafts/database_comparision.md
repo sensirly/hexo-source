@@ -14,8 +14,8 @@
 # key-value 数据库
 
 # 图数据库
-图数据库由点和边组成。点代表要表示的实体；边表示实体间的关系，均为有向边。点和边都有多个属性和标签。以Neo4j为代表   
-![](/img/system_design/graph_database.png)   
+图数据库由点和边组成。点代表要表示的实体；边表示实体间的关系，均为有向边。点和边都有多个属性和标签。以Neo4j为代表    
+![](/img/system_design/graph_database.png)    
 
 ## 属性的存储
 节点属性既可以采用Key-Value存储表独立存储，也可以冗余存放在关系表的Value中。两者优缺点互补，采用独立存储：
@@ -24,8 +24,8 @@
 - 可以直接根据节点id访问属性
 - 影响访问性能，在访问关系数据的同时需要访问节点属性数据，那么需要通过一次额外请求
 
-## 和Relationship Database比较
-![](/img/system_design/neo4jvsrdbms.png)
+## 和Relationship Database比较   
+![](/img/system_design/neo4jvsrdbms.png)   
 关系型数据库适合扁平的数据结构，数据间的关系只有一两层，仅用很少的join操作就能完成所有的查询。图数据库适合包含很多链接的数据，比如社交网络关系。适合大量在线查询的场景。
 
 # Giraph

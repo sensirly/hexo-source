@@ -18,7 +18,7 @@ This advanced course considers how to design interactions between agents in orde
 - Condorcet Consistency：如果一个候选在起其他所有候选的pairwise比较中胜出则被选中，有时会形成Condorcet Cycle
 
 ## 1.2 Paradoxical Outcomes
-![](/img/game_theory/paradoxical_outcomes.PNG)  
+![](/img/game_theory/paradoxical_outcomes.PNG)   
 ### 1.2.1 Impossibility of Non-Paradoxical Social Welfare Functions
 `w`:将所有agent的preference order变为一个order的函数（social welfare function）  
 1. `W` is **Pareto efficient(PE)** if whenever all agents agree on the ordering of two outcomes, the social welfare function selects that ordering.   
@@ -47,7 +47,7 @@ This advanced course considers how to design interactions between agents in orde
 “The agents do not have to lie, because the mechanism already lies for them.”
 
 ## 2.2 Impossibility of General, Dominant-Strategy Implementation
-![](/img/game_theory/gibbard.PNG)  
+![](/img/game_theory/gibbard.PNG)   
 让所有的agent都享有dominant Strategy是不可行的，可通过如下方式化解Gibbard–Satterthwaite theorem：
 - 使用限制更弱的implement，比如Bayes–Nash implementation
 - 规定agent不能随意选择任意的preference
@@ -91,8 +91,8 @@ you get charged everyone’s utility in the world where you don’t participate(
 有时想要设计出一个Efficient的机制是不可能的，需要在incentives和efficiency之间做让步
 >Theorem (Myerson–Satterthwaite): There exist distributions on the buyer’s and seller’s valuations such that: There does not exist any Bayesian incentive-compatible mechanism that is simultaneously efficient, weakly budget balanced and interim individual rational.
 
-Example：Proof for fully budget balanced trade that is ex-post individually rational.
-![](/img/game_theory/myerson.png)
+Example：Proof for fully budget balanced trade that is ex-post individually rational.   
+![](/img/game_theory/myerson.png)   
 
 # 4.Auctions
 ## 4.1 Some Canonical Auctions
@@ -118,8 +118,8 @@ both yield the same expected revenue, and both result in any bidder with valuati
 RET是Auction Theory中最重要的Theorem，Paul Klemperer的[Why Every Economist Should Learn Some Auction Theory](http://www.nuff.ox.ac.uk/users/klemperer/WhyEveryEconomist.pdf)第一章有关于RET的解释和举例。
 
 ## 4.3 Optimal Auctions
-最大化卖家收入,可以通过牺牲efficiency设置reserve price来实现(前提是individual rational/risk-neutral和分布已知)
-![](/img/game_theory/virtual_valuation.PNG)
+最大化卖家收入,可以通过牺牲efficiency设置reserve price来实现(前提是individual rational/risk-neutral和分布已知)   
+![](/img/game_theory/virtual_valuation.PNG)   
 上面是累积分布函数，下面是概率密度函数。如果他是单调增长的， 最好的reserve price就是V.V.=0的时候.
 **Myerson Theorem**：Single-good下，direct机制里，Optimal Auction即把东西卖给V.V.最大的人，且V.V.最大的人支付第二高V.V.
 

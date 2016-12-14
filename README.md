@@ -1,7 +1,7 @@
 # hexo-source
 个人学习笔记备份，截稿文章发表在[Hexo博客](https://sensirly.github.io/)上。
 ## 公开课系列  
-+ [Udacity和Google合作开设的一门deep learning入门课](_posts/udacity-deep-learning.md)
++ [Google深度学习入门课@Udacity](_posts/udacity-deep-learning.md)
 + [UIUC的数据可视化课程@coursera](_posts/data-visualization.md)
 + [StandFord博弈论课程@coursera Part1](_posts/game-theory-coursera-1.md) [Part2](_posts/game-theory-coursera-2.md)
 + [StandFord博弈论进阶课程@coursera](_posts/game-theory-coursera-3.md)

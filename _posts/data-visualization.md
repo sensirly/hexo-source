@@ -17,11 +17,11 @@ visualization is an interface between the computer and the human.    因此我�
 
 ![](/img/coursera/photorealism.JPG)
 <!-- more -->
-## Fitts’ Law（费茨法则）
-当一个人用鼠标来移动鼠标指针时，屏幕上的目标的某些特征会使得点击变得轻松或者困难。目标离的越远，到达就越是费劲。目标越小，就越难点中。
-![](/img/coursera/fitt-law.JPG) 
+## Fitts’ Law（费茨法则） 
+当一个人用鼠标来移动鼠标指针时，屏幕上的目标的某些特征会使得点击变得轻松或者困难。目标离的越远，到达就越是费劲。目标越小，就越难点中。   
+![](/img/coursera/fitt-law.JPG)   
 **Fitts' Law鼓励减少距离，增加目标大小以提升用户效率**。比如Mac OS将Dock放在最底端、windows开始菜单在左下角。这些区域都是可以被“无限可选中的”，只需要大幅度晃动鼠标就能到达目标区域，相当于增大了目标大小；而右键菜单随时可以触发而不需要将鼠标移向程序主菜单，相当于减少距离。Mac系统中的交互设计更好的应用了费茨法则，因此操作效率更高。   
-![](/img/coursera/os_margin.png)
+![](/img/coursera/os_margin.png)   
 更多应用案例参照：[设计法则： Fitts’ Law / 菲茨定律（费茨法则）](http://www.jianshu.com/p/36b610bac7a2)
 
 ## Human Retina
@@ -31,30 +31,30 @@ visualization is an interface between the computer and the human.    因此我�
 
 ## Lateral Inhibition(Perceiving 2D) 
 we see things in context because of these local comparisons that our perceptual system does. 神经系统在处理图像时会放大差异，已便于识别   
-![color context](/img/coursera/color_context.JPG)
+![color context](/img/coursera/color_context.JPG)   
 相同的紫色因为环境色的不同亮度发生了改变   
-![orientation context](/img/coursera/orientation_context.JPG)
+![orientation context](/img/coursera/orientation_context.JPG)   
 左边橙色梯形的斜率是2/5，右边的斜率是5/13。   
-![size context](/img/coursera/size_context.JPG)
+![size context](/img/coursera/size_context.JPG)   
 我们看到的颜色、形状、大小会因为跟环境的对比发生扭曲,因此这些特点有时也会干扰我们正确解读数据。
 
 # week 2:  Visualization of Numerical Data
 
 ## Mapping and Chart
 数据根据不同维度可分为：连续的-离散的，有序的-无序的。不同类型的数据需要借助不同的图像特征来做map，比如对于数值，位置、长度、角度等一维的特征最明显。   
-![data mapping](/img/coursera/data_mapping.JPG)
+![data mapping](/img/coursera/data_mapping.JPG)   
 在选取图表表达数值时，条形图更合适一些，因为它利用了位置和长度，而线形图是利用了位置而没有使用长度。
 
 ## High Dimension
 高维度展示不易辨别，因此常使用下面的技巧用低维空间表达高维数据，但也经常会引起误导
 ### Glyphs（符号）   
-![Glyphs（符号）](/img/coursera/glyphs.JPG)
+![Glyphs（符号）](/img/coursera/glyphs.JPG)   
 在图标的形状之上增加一些符号提供额外的信息，比如用颜色表示的热力图，这些特征虽然不是表达能力最强的特征，但是也起到了很好的辅助作用
 ### Parallel Coordinates   
-![parallel coordinate](/img/coursera/parallel_coordition.JPG)
+![parallel coordinate](/img/coursera/parallel_coordition.JPG)   
 平行坐标系可以展示高维数据，但是只有相邻两个维度的相关性可以直观的被表达，因此需要人工的设置顺序。 
 ### Stacked Graphs   
-![stacked graph](/img/coursera/stacked_graph_order.JPG)
+![stacked graph](/img/coursera/stacked_graph_order.JPG)   
 - Central Limit Thereo:当更多的bar被加入时，整体的变化会减缓
 - 不同bar的相互顺序也会影响趋势的视觉感受（Position>Length）
 - 线形图的stacked graph比柱状图的更平缓

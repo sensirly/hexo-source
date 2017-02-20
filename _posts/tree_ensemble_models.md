@@ -15,7 +15,8 @@ date: 2016-09-16 16:29:05
 主要的方法有Bagging和Boosting。另外一种是stacking（也有叫Hybrid的），即将多个模型的输出作为特征，使用单模型将预测值组合起来，常用LR做模型组合。
 
 ## Bagging和Boosting
-Random Forest使用了Bagging的方法，GBDT、AdaBoost使用的是Boosting的方法。两者在实现上的区别在于：
+Random Forest使用了Bagging的方法，GBDT、AdaBoost使用的是Boosting的方法。两者在实现上的区别在于： 
+
 - 训练集：Bagging每一轮从样本中做有放回的随机采样；Boosting每一轮采用的样本分布都和上一轮的学习结果有关
 - 样例权重：Bagging随机采样权重相同；Boosting根据错误率不断调整样例的权值，错误率越大则权重越大（不完全是这样）
 - 预测权重：Bagging所有预测函数的权重相等；Boosting每个模型都有相应的权重，对于分类误差小的模型会有更大的权重
@@ -37,7 +38,8 @@ Gradient Boosting每次并未改变样本的权重来拟合下一棵树，而是
 GBDT(Gradient Boosting Decision Tree) 又叫 MART（Multiple Additive Regression Tree)，是Ensemble Model的一种实现方式，由多棵决策树组成，所有树的结果累加起来做最终答案。
 ![](../img/machine_learning/gradient_boosting.png)    
 ## Decision Tree
-选取Decision Tree作为Gradient Boosting Modeling的弱分类器，得益于Decision Tree本身的一些良好特性，比如可以处理missing feature、可以不理不同scale的特征值不需要归一化、可以自动过滤无关特征等等。虽然GBDT可以用来解决分类问题，但是GBDT中的树都是回归树，不是分类树。两者区别主要在于节点分裂的依据：
+选取Decision Tree作为Gradient Boosting Modeling的弱分类器，得益于Decision Tree本身的一些良好特性，比如可以处理missing feature、可以不理不同scale的特征值不需要归一化、可以自动过滤无关特征等等。虽然GBDT可以用来解决分类问题，但是GBDT中的树都是回归树，不是分类树。两者区别主要在于节点分裂的依据： 
+
 - 分类树（如C4.5）在每次分裂时穷举每一个特征的的每一个阈值，找到信息熵最大的分裂点分裂，直到到达临界条件。
 - 回归树（如CART）每个节点都会得一个预测值，每次分裂时穷举每一个特征的的每一个阈值，最小化均方差（最小二乘）。
 
@@ -51,6 +53,7 @@ GBDT(Gradient Boosting Decision Tree) 又叫 MART（Multiple Additive Regression
 ## 并行化
 预测时每棵树之间互不影响可以并行预测最后累加。训练时由于树与树之间是迭代的关系，无法独立训练每棵树，但是可以在每棵树的训练过程中进行并行化，其中并行计算量最大的特征分裂点选取收益最大。
 ![](../img/machine_learning/gbdt_parallel.jpg)   
+
 - Parallelize Node Building at Each Level: 建树过程中每一层级中的node都是相互独立的，可以直接并行（第一个for循环），但是会引起数据加载不均衡的问题workload imbalanced.
 - 特征分裂并行化：每个node上查找split分割点时候并行(第二个for循环)，但对一些小的节点，并行带来的收益可能远小于数据切换以及进程通信等带来的开销
 - 在每一层对特征进行并行化：也就是把两层循环的顺序换一下，在外层进行排序省去了重复排序的开销。由于每个feature下的样本数相同，避免了以上两种方法workload不平衡和Overhead过小的缺点
@@ -78,6 +81,7 @@ LambdaMART使用一个特殊的Lambda值来代替GBDT中的梯度，也就是将
 
 # xgboost
 gboost是Gradient Boosting的一种高效实现，训练速度和效果与GBDT相比都有大幅提升，成为各种数据挖掘比赛中的必备武器。其中主要的优化点：
+
 - xgboost的目标函数分为了两个部分，其中正则项控制着模型的复杂度，包括了叶子节点数目T和leaf score的L2范数。   
 ![](../img/machine_learning/xgboost_obj.png)   
 - 传统GBDT在优化时只用到一阶导数信息，xgboost则对代价函数进行了二阶泰勒展开，同时用到了一阶和二阶导数，加速了求解过程。

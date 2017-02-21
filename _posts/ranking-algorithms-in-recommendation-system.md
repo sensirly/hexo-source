@@ -30,6 +30,10 @@ Korend大神提出，2011 RecSys best paper。将用户对物品的评分用1…
 ## 1.4 Restricted Boltzmann Machines
 RBM对二分类的偏好数据进行latent factor分析，本质上是一个随机神经网络（节点的状态取决于相连节点的状态），每个visible unit连接所有的hidden unit和bias unit，同时bias unit还有所有hidden unit相连。算法参数是连接visible unit和hidden unit的无向边的权重Wij，不同用户使用不同的hidden unit和hidden unit状态，但是共享一组weight。详见论文[Restricted Boltzmann Machines for Collaborative Filtering](http://www.machinelearning.org/proceedings/icml2007/papers/407.pdf)，或者这个[introduction](http://blog.echen.me/2011/07/18/introduction-to-restricted-boltzmann-machines).
 
+## 1.5 Sparse LInear Methods
+[SLIM: Sparse Linear Methods for Top-N Recommender Systems](glaros.dtc.umn.edu/gkhome/fetch/papers/SLIM2011icdm.pdf)
+
+
 
 # 2.Pairwise
 ## 2.1 EigenRank

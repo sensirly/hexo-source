@@ -9,7 +9,7 @@ AUC和F1常被用来评测二分类算法的优劣。
 
 # ROC and AUC
 ## ROC(Receiver Operating Characteristic)曲线
-![](/img/machine_learning/roc.png)    
+![](../img/machine_learning/roc.png)    
 如上图所示，ROC曲线的横坐标为false positive rate(FPR)，纵坐标为true positive rate(TPR)，曲线上的各个点代表着当取不同的分类阈值(当分类区的输出概率大于这个阈值时被判为正样本)时所应用的FPR和TPR，将这些(FPR,TPR)对连接起来，就得到了ROC曲线。(0,1)这个点意味着所有的样本都得到了正确的分类；(1,0)意味着所有样本都得到了错误的分类，因此ROC曲线越接近左上角，该分类器的性能越好。  
 将样本按照预测输出值从大到小排序，依次选取预测值作为阈值计算(FPR,TPR)对，最后连成一条曲线。当threshold取值越多，ROC曲线越平滑。   
 ![](/img/machine_learning/roc_plot.gif)    

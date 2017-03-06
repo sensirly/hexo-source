@@ -33,7 +33,13 @@ YouTube视频推荐由两个神经网络组成，一个浅层的网络生成候�
 - 尽管有些特征的embedding是共享的，但仍要单独的放进输入层，以便上层网络学习。
 - 神经网络对输入的scale和分布格外敏感，normalization有利于加速收敛速度。将连续值的多次项加入到特征中也能显著提高离线评估指标。
 
-
+## 引用
+- [17]新闻推荐
+- [22]CF [18]自动编码
+- [21]content music
+- [23]rank loss MF
+- https://www.quora.com/Has-there-been-any-work-on-using-deep-learning-for-recommendation-engines
+http://tech.hulu.com/blog/2016/08/01/cfnade.html
 
 # Google Wide&Deep Learning
 分类模型的预测能力可以分为Memorization和Generation两部分，Memorization可以通过对特征进行

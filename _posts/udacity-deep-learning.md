@@ -3,7 +3,7 @@ title: Udacity《Deep Learning》学习笔记
 tags: [machine learning, online course]
 date: 2016-12-13 20:29:05
 ---
-Udacity和Google合作开设的一门deep learning入门课 [课程链接](https://classroom.udacity.com/courses/ud730)，由Google首席研发科学家Vincent Vanhoucke主讲，以实战的视角介绍了常用deep learning算法，原理性的内容大多一两句话带过没有详细的证明推导，但也算句句珠玑了，wide but not very deep。作业使用修改过的MNIST(手写数字识别)数据集，python编程，在scikit-learn和TensorFlow平台上完成，可以借此熟悉平台使用。主要内容包括机器学习基本概念、深度神经网络、卷积神经网络、文本和序列的深度模型。   
+deep learning入门公开课 [课程链接](https://classroom.udacity.com/courses/ud730)，由Google首席研发科学家Vincent Vanhoucke主讲，以实战的视角介绍了常用deep learning算法，原理性的内容大多一两句话带过没有详细的证明推导，但也算句句珠玑了，wide but not very deep。作业使用修改过的MNIST(手写数字识别)数据集，python编程，在scikit-learn和TensorFlow平台上完成，可以借此熟悉平台使用。主要内容包括机器学习基本概念、深度神经网络、卷积神经网络、文本和序列的深度模型。   
 ![](../img/udacity-deep-learning/course_overview.png)  
 <!-- more -->
 ## 1. From Machine Learning to Deep Learning
@@ -86,7 +86,7 @@ vanishing gradient会导致分类器只对最近状态的有反应，丧失学�
 ![](../img/udacity-deep-learning/beam_search.png)   
 
 ## 观后感
-虽然整个课程的视频只有一个多小时的样子，但是要把所有内容都消化还是要花很多时间到处查资料的。DL博大精深，但是TensorFlow这些神器也一定程度上降低了学习成本，这个课本身也是实践导向，提倡暂时忽略一些背后的复杂推导做个lazy engineer，然后learn by practice。视频已撸完，对应的知识也大体理解了，接下来该装个TensorFlow把课上的assignment跑起来了。
+虽然整个课程的视频只有一个多小时的样子，但对于初学者来说要把所有内容都消化还是要花很多时间到处查资料的。DL博大精深，但是TensorFlow这些神器也一定程度上降低了学习成本，这个课本身也是实践导向，提倡暂时忽略一些背后的复杂推导做个lazy engineer，然后learn by practice。视频已撸完，对应的知识也大体理解了，接下来该装个TensorFlow把课上的assignment跑起来了。
 
 ## 参考
 - [UFLDL教程](http://ufldl.stanford.edu/wiki/index.php/UFLDL%E6%95%99%E7%A8%8B)

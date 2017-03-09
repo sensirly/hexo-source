@@ -24,6 +24,9 @@ notMNIST是升级版的MNIST，含有A-J10个类别的艺术印刷体字符，�
 - 训练：使用Logistic Regression做简单的训练，观察不同训练样本数量对预测准确度的影响。
 
 ```python  
+from sklearn.linear_model import LogisticRegression
+import numpy as np
+
 num_samples=[100,300,1000,3000,10000]
 lr = LogisticRegression()
 trainset=np.reshape(train_dataset,(train_dataset.shape[0],28*28))
@@ -40,7 +43,7 @@ for k in num_samples:
 '''
 ```
 ## 2.fullyConnected
-样例中给出了如何使用TensorFlow构建一个多分类的逻辑回归：首先在graph中定义计算过程，然后在session中运行这些op。然后我们参照这个流程构造一层的NN网络，使用ReLu作为激活函数。使用miniBatch随机梯度进行训练，因此训练数据不是一个特定的值，而是占位符**placeholder**，在TensorFlow运行计算时通过feed机制输入这个值。测试集准确率达到91.2%
+样例中给出了如何使用TensorFlow构建一个多分类的逻辑回归：首先在graph中定义计算过程，然后在session中运行这些op。然后我们参照这个流程构造一层的NN网络，使用ReLu作为激活函数。使用miniBatch随机梯度进行训练，因此训练数据不是一个特定的值，而是占位符**placeholder**，在TensorFlow运行计算时通过feed机制输入这个值。使用batch训练的LR测试集准确率为85.9%，1-layer NN达到91.1%
  
 ```python
 batch_size = 128
@@ -63,7 +66,7 @@ with graph.as_default():
   l2 = tf.matmul(l1, w2) + b2
   loss = tf.reduce_mean(
     tf.nn.softmax_cross_entropy_with_logits(labels=y, logits=l2))
-  optimizer = tf.train.GradientDescentOptimizer(0.1).minimize(loss)
+  optimizer = tf.train.GradientDescentOptimizer(0.2).minimize(loss)
 
   train_prediction = tf.nn.softmax(l2)
   valid_relu= tf.nn.relu(tf.matmul(valid, w1) + b1)
@@ -83,5 +86,17 @@ with tf.Session(graph=graph) as session:
       [optimizer, loss, train_prediction], feed_dict=feed_dict)
     # 打印训练集、测试集、校验集的loss和准确度
 ```
-## 3.
+## 3. Regularization
+- Problem 1：分别对之前训练的LR和NN模型增加了L2正则项
+- Problem 2：为了验证正则的作用，在极小的数据集（1024）下反复迭代训练。观察到在没有正则的情况下，训练集的准确率很快收敛到了100%但是测试集准确率只有80.3%；增加正则项后训练集准确率迅速在85%处收敛，测试准确率86.3%。   
+- Problem 3：依然使用极小数据集，在隐层后面增加一个dropout层（但是要注意这个dropout层只有训练时用预测时不用），`keep_prob`设为0.5。
+- Problem 4：尝试更加复杂的网络（1024\*256\*64）,并使用**learning rate decay**, 效果显著。dropout并没有取得预期的效果。
+
+| L2  |Dropout| 小数据集 | 大数据集 | DNN |
+|-----| ----- | ------  | -----  | --- |
+| 无 | 无 | 80.3% | 91.1% | 96.5% |
+| 有 | 无 | 86.3% | 91% | 96.3% |
+| 无 | 有 | 87.1% | 90.8%|  94.4% |
+| 有 | 有 | 88%   | 90.8%|  94.4% |
+
 

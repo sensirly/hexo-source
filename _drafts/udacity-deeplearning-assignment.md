@@ -10,7 +10,7 @@ tags: [online course, machine learning]
 2. Assignment的要求以ipynb文件的形式放在[GitHub](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/udacity)上，可以通过[官方文档](https://www.tensorflow.org/tutorials/)或者[极客学院翻译的TensorFlow 官方文档中文版](http://wiki.jikexueyuan.com/project/tensorflow-zh/)了解一下TensorFlow的基本概念及原理：   
 	- 使用**tensor**表示数据.在Python中,返回的tensor是`numpy ndarray`对象
 	- 使用图(**graph**)来表示计算任务.图中的节点被称之为**op**(operation). 一个op获得 0个或多个Tensor执行计算, 产生0个或多个Tensor
-	- 在被称之为会话(**Session**)的上下文中执行图.会话将图的op分发到诸如CPU或GPU之类的设备上,同时提供执行op的方法并返回产生的Tensor
+	- 在被称之为会话(**Session**)的上下文中执行图。会话将图的op分发到诸如CPU或GPU之类的设备上,同时提供执行op的方法并返回产生的Tensor
 	- 通过变量(**Variable**)维护状态(计数器等)
 	- TensorFlow还提供了**feed**机制, 该机制可以临时替代图中的任意操作中的tensor可以对图中任何操作提交补丁,直接插入一个tensor
 
